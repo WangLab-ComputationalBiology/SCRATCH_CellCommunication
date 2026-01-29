@@ -1,0 +1,44 @@
+name: "SCRATCH-CellComm"
+description: "Cell-cell communication module using LIANA, CellChat, and NicheNet with a unified SCRATCH report."
+version: "1.0"
+author: "WangLab-ComputationalBiology / SCRATCH"
+
+inputs:
+  - name: input_seurat_object
+    type: file
+    description: "Batch-corrected non-tumor Seurat object (.rds)"
+
+parameters:
+  - name: organism
+    default: "human"
+
+  - name: assay
+    default: "RNA"
+
+  - name: sample_col
+    default: "sample_id"
+
+  - name: celltype_col
+    default: "celltype"
+
+  - name: condition_col
+    default: "condition"
+
+  - name: outdir
+    default: "results"
+
+  - name: project_name
+    default: "project"
+
+outputs:
+  - path: "${outdir}/${project_name}/cellcommunication/report/index.html"
+    description: "Final integrated CellComm report"
+
+  - path: "${outdir}/${project_name}/cellcommunication/liana"
+    description: "LIANA results + figures"
+
+  - path: "${outdir}/${project_name}/cellcommunication/cellchat"
+    description: "CellChat object + tables + figures"
+
+  - path: "${outdir}/${project_name}/cellcommunication/nichenet"
+    description: "NicheNet receiver-wise results"

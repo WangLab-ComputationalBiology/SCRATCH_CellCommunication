@@ -1,0 +1,1 @@
+assets/nichenet_resources/*.rds filter=lfs diff=lfs merge=lfs -text
